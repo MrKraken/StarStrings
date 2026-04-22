@@ -36,7 +36,7 @@ If you want to use bits from different translation packs you've found, check out
 # Installation
 1. Download the latest release on the right hand side
 2. Extract the ZIP file.
-3. If you already have a user.cfg file, do not overwrite it. Instead, open your existing user.cfg and add the following line at the end `g_language = english.`
+3. If you already have a user.cfg file, do not overwrite it. Instead, open your existing user.cfg and add the following line at the end `g_language = english`
 4. Copy the data folder and the (user.cfg) file into your game’s LIVE folder root.
 5. Launch the game! 
 
