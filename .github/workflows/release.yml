@@ -1,0 +1,47 @@
+name: Build & Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set release tag
+        id: tag
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          DATE=$(date +'%Y%m%d')
+          echo "tag=release-${DATE}-${SHORT_SHA}" >> $GITHUB_OUTPUT
+
+      - name: Bundle release files
+        run: |
+          zip -r StarStrings.zip USER.cfg readme.md Data/
+
+      - name: Delete existing 'latest' release (if any)
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Latest Build (${{ steps.tag.outputs.tag }})"
+          body: |
+            Automated release from commit ${{ github.sha }}.
+            Includes `USER.cfg`, `readme.md`, and the `Data/` folder.
+          prerelease: true
+          files: StarStrings.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
