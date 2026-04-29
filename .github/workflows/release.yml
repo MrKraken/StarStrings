@@ -20,7 +20,7 @@ jobs:
         id: tag
         run: |
           SHORT_SHA=$(git rev-parse --short HEAD)
-          DATE=$(date +'%Y%m%d')
+          DATE=$(date +'%Y-%m-%d')
           echo "tag=release-${DATE}-${SHORT_SHA}" >> $GITHUB_OUTPUT
 
       - name: Bundle release files
@@ -41,7 +41,7 @@ jobs:
           body: |
             Automated release from commit ${{ github.sha }}.
             Includes `USER.cfg`, `readme.md`, and the `Data/` folder.
-          prerelease: true
+          prerelease: false
           files: StarStrings.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
