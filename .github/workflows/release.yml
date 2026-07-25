@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - sc-ptu
 
 permissions:
   contents: write
@@ -16,34 +17,49 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set release tag
-        id: tag
+      - name: Set build metadata
+        id: meta
         run: |
           SHORT_SHA=$(git rev-parse --short HEAD)
           DATE=$(date +'%Y-%m-%d')
           echo "tag=release-${DATE}-${SHORT_SHA}" >> $GITHUB_OUTPUT
 
+      - name: Configure release target
+        id: release_config
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "sc-ptu" ]; then
+            echo "release_tag=latest-ptu" >> $GITHUB_OUTPUT
+            echo "release_name_prefix=SC PTU Build" >> $GITHUB_OUTPUT
+            echo "zip_name=StarStrings-PTU.zip" >> $GITHUB_OUTPUT
+            echo "is_prerelease=true" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=latest" >> $GITHUB_OUTPUT
+            echo "release_name_prefix=SC LIVE Build" >> $GITHUB_OUTPUT
+            echo "zip_name=StarStrings-LIVE.zip" >> $GITHUB_OUTPUT
+            echo "is_prerelease=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Bundle release files
         run: |
-          cd src/For_Players && zip -r ../../StarStrings-LIVE.zip USER.cfg readme.md Data/
+          cd src/For_Players && zip -r ../../${{ steps.release_config.outputs.zip_name }} USER.cfg readme.md Data/
 
-      - name: Delete existing 'latest' release (if any)
+      - name: Delete existing target release (if any)
         run: |
-          gh release delete latest --yes --cleanup-tag || true
+          gh release delete "${{ steps.release_config.outputs.release_tag }}" --yes --cleanup-tag || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: "SC LIVE Build (${{ steps.tag.outputs.tag }})"
+          tag_name: ${{ steps.release_config.outputs.release_tag }}
+          name: "${{ steps.release_config.outputs.release_name_prefix }} (${{ steps.meta.outputs.tag }})"
           body: |
             Automated release from commit ${{ github.sha }}.
             Includes `USER.cfg`, `readme.md`, and the `Data/` folder.
             Make sure to check for updates when there's a new Star Citizen Patch as failing to do so will result in missing/broken text in-game.
             Read the [README](https://github.com/MrKraken/StarStrings/tree/master?tab=readme-ov-file) for more information.
-          prerelease: false
-          files: StarStrings-LIVE.zip
+          prerelease: ${{ steps.release_config.outputs.is_prerelease }}
+          files: ${{ steps.release_config.outputs.zip_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
