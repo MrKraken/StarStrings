@@ -1,6 +1,9 @@
 # MrKraken's String Replacements
-### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-4.9.0_live_12232306]**
-# ⚠️ You **need** to check for an update to this file every patch ⚠️
+### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-4.9.0_live_12269732]**
+##  ⚠️ You **need** to check for an update to this file every patch ⚠️
+> [!CAUTION]
+> Not officially endorsed or approved by CIG. Considered a 3rd party contribution: Use at your own discretion. Further information below.
+
 > [!WARNING]
 > I don't recommend using custom strings on PTU as each new build will likely add new strings, this will result in you seeing blank contracts & "missing" text. I try to update ASAP after a build but it's not always possible.
 # Changes Included
@@ -75,7 +78,7 @@ StarCitizen/
 
 > [!IMPORTANT]
 > **Made by the Community** - This is an unofficial Star Citizen fan project, not affiliated with the Cloud Imperium group of companies. All content in this repository not authored by its host or users are property of their respective owners.
-- The ability to customise your localisation using the extracted global.ini file is intended/authorised by CIG to support community made translations until it is officially integrated
+- The ability to customise your localisation using the extracted global.ini file is intended/authorised by CIG to support community made translations until it is officially integrated. *As this is adding information to an existing, official language, they can ask me to cease distributing it at any time.*
     - *[Star Citizen: Community Localization Update](https://robertsspaceindustries.com/spectrum/community/SC/forum/1/thread/star-citizen-community-localization-update) 2023-10-11*
 - Considered as third-party contributions, use at your own discretion
 - [RSI Terms of Service](https://robertsspaceindustries.com/en/tos)

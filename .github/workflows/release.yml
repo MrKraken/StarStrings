@@ -42,7 +42,7 @@ jobs:
             Automated release from commit ${{ github.sha }}.
             Includes `USER.cfg`, `readme.md`, and the `Data/` folder.
             Make sure to check for updates when there's a new Star Citizen Patch as failing to do so will result in missing/broken text in-game.
-            Read the [README](https://github.com/MrKraken/StarStrings/blob/master/readme.md) for more information.
+            Read the [README](https://github.com/MrKraken/StarStrings/tree/master?tab=readme-ov-file) for more information.
           prerelease: false
           files: StarStrings-LIVE.zip
         env:
