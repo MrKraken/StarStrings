@@ -1,5 +1,5 @@
 # MrKraken's String Replacements
-### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-4.10.0_ptu_12373313]**
+### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-4.10.0_ptu_12381782]**
 ##  ⚠️ You **need** to check for an update to this file every patch ⚠️
 > [!CAUTION]
 > Not officially endorsed or approved by CIG. Considered a 3rd party contribution: Use at your own discretion. Further information below.
