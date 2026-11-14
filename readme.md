@@ -1,5 +1,5 @@
 # MrKraken's String Replacements
-### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-4.10.3_ptu_13145606]**
+### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-5.0.0_ptu_13189690]**
 ##  ⚠️ You **need** to check for an update to this file every patch ⚠️
 > [!CAUTION]
 > Not officially endorsed or approved by CIG. Considered a 3rd party contribution: Use at your own discretion. Further information below.
@@ -26,6 +26,10 @@
 - Contracts that award scenario progress (Eg. Return of Xenothreat) show how many points & if they are split
 - Added reputation award amount to all contracts (title & description)
 - Added asteroid RS values to scanning contract objectives
+- Added hostile ships to expect to relevant contracts [2026-11-10]
+  - Added Ace Pilot %
+- Added contract cooldown info [2026-11-10]
+- Added contract debug name (for fellow issue council nerds) [2026-11-10]
 ### Mining
 - Hephaestanite (Raw) shortened to Heph (Raw)
 - Mining UI text shortened to avoid crossover with values
