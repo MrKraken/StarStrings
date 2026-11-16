@@ -1,5 +1,5 @@
 # MrKraken's String Replacements
-### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-5.0.0_ptu_13189690]**
+### (English) Community Translated .ini for **Star Citizen [Build: sc-alpha-5.0.0_ptu_13201184]**
 ##  ⚠️ You **need** to check for an update to this file every patch ⚠️
 > [!CAUTION]
 > Not officially endorsed or approved by CIG. Considered a 3rd party contribution: Use at your own discretion. Further information below.
@@ -46,6 +46,7 @@
 - Reformatted the Mining guide journal entry to group ores by rarity
   - nb. I do not verify that the source journal entry is in any way accurate.
 - Added some QoL quick tips to the Refuelling Guide
+- Added Rep "to fill" values on rep app, hopefully it's accurate across all uses of the same strings... [2026-11-14]
 
 If you want to use bits from different translation packs you've found, check out [BeltaKoda's web based tool](https://beltakoda.github.io/StarMeld/)
 
